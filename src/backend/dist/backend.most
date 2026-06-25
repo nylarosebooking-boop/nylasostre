@@ -1,0 +1,80 @@
+// Version: 4.0.0
+type ContactSubmission__1051450037 =
+  {
+    email : Text;
+    id : Nat;
+    message : Text;
+    name : Text;
+    subject : Text;
+    submittedAt : Int
+  };
+type EmailSignup__879806709 = {email : Text; signedUpAt : Int};
+type List__529703492<T> =
+  {
+    var blockIndex : Nat__1040412405;
+    var blocks : [var [var ?T]];
+    var elementIndex : Nat__1040412405
+  };
+type List__560604548<T> = List__529703492<T>;
+type Nat__1040412405 = Nat__920180692;
+type Nat__920180692 = Nat;
+type NewActor__381965647 =
+  {
+    emailSignups : List__560604548<{email : Text; signedUpAt : Int}>;
+    nextSubmissionId : {var value : Nat};
+    submissions :
+      List__560604548<{
+                        email : Text;
+                        id : Nat;
+                        message : Text;
+                        name : Text;
+                        subject : Text;
+                        submittedAt : Int
+                      }>
+  };
+type NewActor__647985096 =
+  {
+    nextSubmissionId : {var value : Nat};
+    submissions :
+      List__560604548<{
+                        email : Text;
+                        id : Nat;
+                        message : Text;
+                        name : Text;
+                        subject : Text;
+                        submittedAt : Int
+                      }>
+  };
+type OldActor__755287637 = {};
+type OldActor__804403899 =
+  {
+    nextSubmissionId : {var value : Nat};
+    submissions :
+      List__560604548<{
+                        email : Text;
+                        id : Nat;
+                        message : Text;
+                        name : Text;
+                        subject : Text;
+                        submittedAt : Int
+                      }>
+  };
+{
+  "20250624_000000" : (_old : OldActor__755287637) -> NewActor__647985096;
+  "20250624_000001" : (old : OldActor__804403899) -> NewActor__381965647
+}
+actor  {
+  stable emailSignups :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?EmailSignup__879806709]];
+      var elementIndex : Nat__1040412405
+    };
+  stable nextSubmissionId : {var value : Nat};
+  stable submissions :
+    {
+      var blockIndex : Nat__1040412405;
+      var blocks : [var [var ?ContactSubmission__1051450037]];
+      var elementIndex : Nat__1040412405
+    }
+};

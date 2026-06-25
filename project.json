@@ -1,0 +1,20 @@
+{
+  "overview": "A clean, elegant personal website for Nyla Sostre, a Broadway actress and singer-songwriter currently appearing in MJ: The Musical.",
+  "features": [
+    "Two-page layout with Home and Now/Work",
+    "Full-viewport hero with professional photo",
+    "Email signup stored in backend",
+    "Contact form with inquiry type dropdown",
+    "Social links and streaming platform buttons",
+    "Muted gold and earth tone vintage glam aesthetic"
+  ],
+  "category": "showcase",
+  "tags": [
+    "portfolio",
+    "broadway",
+    "music",
+    "artist",
+    "personal-website"
+  ],
+  "last_updated": "2026-06-24T22:51:06.983Z"
+}

@@ -1,0 +1,268 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Instrument Serif";
+  src: url("/assets/fonts/InstrumentSerif-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src: url("https://fonts.gstatic.com/s/cormorantgaramond/v16/co3WmX5slCNuHLi8bLeY9MK7whWMhyjYrEtFmSu5-Meu.woff2")
+    format("woff2");
+  font-weight: 300 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("https://fonts.gstatic.com/s/jetbrainsmono/v18/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff2")
+    format("woff2");
+  font-weight: 100 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --font-display: "Instrument Serif", serif;
+    --font-hero: "Cormorant Garamond", serif;
+    --font-body: "Satoshi", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --radius: 0.625rem;
+
+    /* Deep Ocean Editorial palette — OKLCH */
+    --background: 0.14 0.02 230;
+    --foreground: 0.94 0.01 70;
+    --card: 0.18 0.025 220;
+    --card-foreground: 0.94 0.01 70;
+    --popover: 0.18 0.025 220;
+    --popover-foreground: 0.94 0.01 70;
+
+    --primary: 0.72 0.12 185;
+    --primary-foreground: 0.12 0.02 220;
+
+    --secondary: 0.22 0.03 220;
+    --secondary-foreground: 0.94 0.01 70;
+    --muted: 0.22 0.03 220;
+    --muted-foreground: 0.6 0.02 200;
+
+    --accent: 0.65 0.1 40;
+    --accent-foreground: 0.94 0.01 70;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.26 0.025 215;
+    --input: 0.26 0.025 215;
+    --ring: 0.72 0.12 185;
+
+    --chart-1: 0.72 0.12 185;
+    --chart-2: 0.65 0.1 40;
+    --chart-3: 0.6 0.08 200;
+    --chart-4: 0.5 0.1 25;
+    --chart-5: 0.8 0.1 70;
+
+    --sidebar: 0.18 0.025 220;
+    --sidebar-foreground: 0.94 0.01 70;
+    --sidebar-primary: 0.72 0.12 185;
+    --sidebar-primary-foreground: 0.12 0.02 220;
+    --sidebar-accent: 0.26 0.025 215;
+    --sidebar-accent-foreground: 0.94 0.01 70;
+    --sidebar-border: 0.26 0.025 215;
+    --sidebar-ring: 0.72 0.12 185;
+  }
+
+  .dark {
+    --background: 0.14 0.02 230;
+    --foreground: 0.94 0.01 70;
+    --card: 0.18 0.025 220;
+    --card-foreground: 0.94 0.01 70;
+    --popover: 0.18 0.025 220;
+    --popover-foreground: 0.94 0.01 70;
+
+    --primary: 0.72 0.12 185;
+    --primary-foreground: 0.12 0.02 220;
+
+    --secondary: 0.22 0.03 220;
+    --secondary-foreground: 0.94 0.01 70;
+    --muted: 0.22 0.03 220;
+    --muted-foreground: 0.6 0.02 200;
+
+    --accent: 0.65 0.1 40;
+    --accent-foreground: 0.94 0.01 70;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0 0;
+
+    --border: 0.26 0.025 215;
+    --input: 0.26 0.025 215;
+    --ring: 0.72 0.12 185;
+
+    --chart-1: 0.72 0.12 185;
+    --chart-2: 0.65 0.1 40;
+    --chart-3: 0.6 0.08 200;
+    --chart-4: 0.5 0.1 25;
+    --chart-5: 0.8 0.1 70;
+
+    --sidebar: 0.18 0.025 220;
+    --sidebar-foreground: 0.94 0.01 70;
+    --sidebar-primary: 0.72 0.12 185;
+    --sidebar-primary-foreground: 0.12 0.02 220;
+    --sidebar-accent: 0.26 0.025 215;
+    --sidebar-accent-foreground: 0.94 0.01 70;
+    --sidebar-border: 0.26 0.025 215;
+    --sidebar-ring: 0.72 0.12 185;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      180deg,
+      oklch(0.14 0.02 230 / 0.15) 0%,
+      oklch(0.14 0.02 230 / 0.35) 40%,
+      oklch(0.14 0.02 230 / 0.75) 80%,
+      oklch(0.14 0.02 230 / 0.92) 100%
+    );
+  }
+
+  .gradient-card {
+    background: linear-gradient(
+      145deg,
+      oklch(0.18 0.025 220 / 0.9) 0%,
+      oklch(0.14 0.02 230 / 0.95) 100%
+    );
+  }
+
+  .gradient-primary {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.12 185) 0%,
+      oklch(0.65 0.1 175) 50%,
+      oklch(0.72 0.12 185) 100%
+    );
+  }
+
+  .text-gradient-primary {
+    background: linear-gradient(
+      135deg,
+      oklch(0.72 0.12 185) 0%,
+      oklch(0.8 0.1 170) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 1px 3px 0 oklch(0.1 0 0 / 0.3), 0 1px 2px -1px
+      oklch(0.1 0 0 / 0.2);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 10px 15px -3px oklch(0.1 0 0 / 0.4), 0 4px 6px -4px
+      oklch(0.1 0 0 / 0.3);
+  }
+
+  .shadow-glow {
+    box-shadow: 0 0 20px oklch(0.72 0.12 185 / 0.15), 0 0 40px
+      oklch(0.72 0.12 185 / 0.05);
+  }
+
+  .border-glow {
+    border-color: oklch(0.72 0.12 185 / 0.3);
+  }
+
+  /* Refined focus ring for form inputs */
+  .focus-ring-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px oklch(0.72 0.12 185 / 0.3);
+    border-color: oklch(0.72 0.12 185 / 0.5);
+  }
+
+  /* Section divider accent line */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      oklch(0.72 0.12 185 / 0.3) 50%,
+      transparent 100%
+    );
+  }
+
+  /* Smooth backdrop blur for elevated surfaces */
+  .backdrop-blur-elevated {
+    backdrop-filter: blur(24px) saturate(1.2);
+    -webkit-backdrop-filter: blur(24px) saturate(1.2);
+  }
+
+  /* Subtle texture overlay for card backgrounds */
+  .texture-subtle {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      oklch(0.72 0.12 185 / 0.04) 1px,
+      transparent 0
+    );
+    background-size: 24px 24px;
+  }
+
+  /* Hover lift effect for interactive cards */
+  .hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s
+      cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -4px oklch(0.1 0 0 / 0.35);
+  }
+
+  /* Animated underline for nav links */
+  .nav-underline {
+    position: relative;
+  }
+  .nav-underline::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: oklch(0.72 0.12 185);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .nav-underline:hover::after {
+    width: 100%;
+  }
+}

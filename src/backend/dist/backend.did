@@ -1,0 +1,35 @@
+type SubmitContactRequest = 
+ record {
+   email: text;
+   message: text;
+   name: text;
+   subject: text;
+ };
+type EmailSignup = 
+ record {
+   email: text;
+   signedUpAt: int;
+ };
+type ContactSubmission = 
+ record {
+   email: text;
+   id: nat;
+   message: text;
+   name: text;
+   subject: text;
+   submittedAt: int;
+ };
+service : {
+  __emailSignups: (io: opt nat, count: opt nat) -> (vec EmailSignup) query;
+  __nextSubmissionId: () -> (reserved) query;
+  __submissions: (io: opt nat, count: opt nat) ->
+   (vec ContactSubmission) query;
+  listContactSubmissions: () -> (vec ContactSubmission) query;
+  listEmailSignups: () -> (vec EmailSignup) query;
+  submitContactForm: (request: SubmitContactRequest) ->
+   (variant {
+      err: text;
+      ok;
+    });
+  submitEmailSignup: (email: text) -> ();
+}
